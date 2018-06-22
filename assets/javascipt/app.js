@@ -73,12 +73,13 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
             $(".title").show();
             $(".bigbox1").hide();
             $(".bigbox2").show(); 
+            $(".box3").empty();
             clearInterval(intervalId);
             clockRunning = false;
 
-            $(".box3").append("<h4> Correct: " + correct  + "</h4>");
-            $(".box3").append("<h4> Incorrect: " + incorrect + "</h4>");
-            $(".box3").append("<h4> Unanswered: " + unanswered  + "</h4>");
+            $(".box3").append("<h1> Correct: " + correct  + "</h1>");
+            $(".box3").append("<h1> Incorrect: " + incorrect + "</h1>");
+            $(".box3").append("<h1> Unanswered: " + unanswered  + "</h1>");
     }
     
         $(".button").on("click",".answerbutton", function(){
@@ -115,7 +116,10 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         answernum++;
         $(".bigbox1").hide();
         $(".bigbox2").show();
-        $(".box3").html("you are wrong");
+        $(".box3").empty();
+        $(".box3").append("<h1>You Are Incorrect</h1>");
+        $(".box3").append("<h1>Correct Answer: " +  rightAnswers[answernum-1] + "</h1>");
+        $(".box3").append( "<img id=onepunch src='./assets/images/wrong.gif'>");
         setTimeout(numplus, 2000);
         console.log("loss");
     }
@@ -143,7 +147,10 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         stop();
         $(".bigbox1").hide();
         $(".bigbox2").show();
-        $(".box3").html("no more time");
+        $(".box3").empty();
+        $(".box3").append("<h1>You Are Out Of Time</h1>");
+        $(".box3").append("<h1>Correct Answer: " +  rightAnswers[answernum-1] + "</h1>");
+        $(".box3").append( "<img id=onepunch src='./assets/images/miss.gif'>");
         setTimeout(numplus, 2000);
 
         }
