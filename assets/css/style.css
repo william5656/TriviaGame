@@ -6,6 +6,14 @@
     position: relative;
 }
 
+.box3 {
+    height: 50vh;
+    width: 80%;
+    border: 2px solid black;
+    margin: 0 auto;
+    position: relative;
+}
+
 h1 {
     display: flex;
     justify-content: center;
@@ -67,4 +75,14 @@ h1 {
     margin: 50px;
     width: 35%;
     height: 70%;
+}
+
+.timeleft {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 40px;
+    display: block;
+    margin: 0 auto;
 }
