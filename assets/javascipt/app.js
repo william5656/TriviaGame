@@ -43,8 +43,9 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
     }
 
     function question(j){
-            run();
             number = 10;
+            $(".timeleft").html("<h3> Time left: " +number+ "</h3>");
+            run();
             $(".image1").hide();
             $(".startbox").hide();
             $(".title").show();
@@ -55,16 +56,17 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
             if(questionnum > answers.length-1){
             endgame();
             }
-            $(".question").html("Q: " + questions[j]);
+            else {
+                $(".question").html("Q: " + questions[j]);
 
-            for(var i = 0; i < answers[j].length; i++){
-                var a = $("<button>");
-                a.addClass("btn btn-primary answerbutton ");
-                a.attr("data-name", answers[j][i]);
-                a.html(answers[j][i]);
-                $(".button").append(a);
+                for(var i = 0; i < answers[j].length; i++){
+                    var a = $("<button>");
+                    a.addClass("btn btn-primary answerbutton ");
+                    a.attr("data-name", answers[j][i]);
+                    a.html(answers[j][i]);
+                    $(".button").append(a);
+                }
             }
- 
         }
 
     function endgame(){
@@ -74,14 +76,15 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
             $(".bigbox1").hide();
             $(".bigbox2").show(); 
             $(".box3").empty();
-            clearInterval(intervalId);
-            clockRunning = false;
+            stop();
 
             $(".box3").append("<h1> Correct: " + correct  + "</h1>");
             $(".box3").append("<h1> Incorrect: " + incorrect + "</h1>");
             $(".box3").append("<h1> Unanswered: " + unanswered  + "</h1>");
+            $(".box3").append("<button class='playAgain btn btn-primary'> Play Again </button>");
     }
-    
+            $(".box3").on("click", ".playAgain", start);
+
         $(".button").on("click",".answerbutton", function(){
             if(this.textContent === rightAnswers[answernum]){
                 console.log("the text xontent " + this.textContent);
@@ -98,6 +101,7 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
     
 
     function wins(){
+        stop();
         correct++;
         questionnum++;
         answernum++;
@@ -107,10 +111,10 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         $(".box3").append("<h1>You Are Correct</h1>");
         $(".box3").append( "<img id=onepunch src='./assets/images/one-punch.gif'>");
         setTimeout(numplus, 2000);
-        
     }
 
     function loss(){
+        stop();
         incorrect++;
         questionnum++;
         answernum++;
@@ -135,10 +139,8 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
 
   
     function decrement() {
-
-    number--;
-
-    $(".timeleft").html("<h3> Time left: " +number+ "</h3>");
+        number--;
+        $(".timeleft").html("<h3> Time left: " +number+ "</h3>");
 
         if (number === 0) {
         unanswered++
@@ -155,6 +157,7 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
 
         }
     }
+
     function stop() {
     clearInterval(intervalId);
     clockRunning = false;

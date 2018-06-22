@@ -46,8 +46,9 @@
     width: 15%;;
     position: absolute;
     z-index: 10;
-    bottom: 20%;;
+    bottom: 10px;
     left: 43%;
+    background-color: #9999ff;
 }
 
 .startbox {
@@ -61,7 +62,7 @@
 }
 
 .image1 {
-    background-image: url("../images/quiz.jpg");
+    background-image: url("../images/quiz2.jpg");
     background-size: cover;
     height: 100vh;
     width: 100vw;;
@@ -122,4 +123,11 @@ h4 {
     width: 100%;
     margin: 5px;
     height: 50px;
+}
+
+.playAgain {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    background-color: #9999ff;
 }
