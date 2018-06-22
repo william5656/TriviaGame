@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+var clockRunning = false;
 var answernum = 0;
 var questionnum = 0;
 var correct = 0;
@@ -58,7 +59,7 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
 
             for(var i = 0; i < answers[j].length; i++){
                 var a = $("<button>");
-                a.addClass("answerbutton");
+                a.addClass("btn btn-primary answerbutton ");
                 a.attr("data-name", answers[j][i]);
                 a.html(answers[j][i]);
                 $(".button").append(a);
@@ -69,9 +70,15 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
     function endgame(){
             $(".image1").hide();
             $(".startbox").hide();
-            $(".title").hide();
+            $(".title").show();
             $(".bigbox1").hide();
             $(".bigbox2").show(); 
+            clearInterval(intervalId);
+            clockRunning = false;
+
+            $(".box3").append("<h4> Correct: " + correct  + "</h4>");
+            $(".box3").append("<h4> Incorrect: " + incorrect + "</h4>");
+            $(".box3").append("<h4> Unanswered: " + unanswered  + "</h4>");
     }
     
         $(".button").on("click",".answerbutton", function(){
@@ -95,7 +102,9 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         answernum++;
         $(".bigbox1").hide();
         $(".bigbox2").show();
-        $(".box3").html("you are right");
+        $(".box3").empty();
+        $(".box3").append("<h1>You Are Correct</h1>");
+        $(".box3").append( "<img id=onepunch src='./assets/images/one-punch.gif'>");
         setTimeout(numplus, 2000);
         
     }
@@ -111,9 +120,15 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         console.log("loss");
     }
 
+
     function run() {
+        if (!clockRunning) {
         intervalId = setInterval(decrement, 1000);
+         clockRunning = true;
+        }
+    
       }
+
   
     function decrement() {
 
@@ -131,12 +146,11 @@ var answers = [["GreenLand", "Japan", "Madagascar", "Australia"], ["Nile", "Yell
         $(".box3").html("no more time");
         setTimeout(numplus, 2000);
 
-           
         }
     }
     function stop() {
-
     clearInterval(intervalId);
+    clockRunning = false;
      }
 
 start();

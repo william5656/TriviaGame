@@ -4,6 +4,7 @@
     border: 2px solid black;
     margin: 0 auto;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .box3 {
@@ -12,21 +13,17 @@
     border: 2px solid black;
     margin: 0 auto;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    margin-top: 20px;
-}
 
 .box2 {
     height: 15vh;
     width: 80%;
     border: 2px solid black;
+    border-bottom: 0;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .timer {
@@ -36,6 +33,7 @@ h1 {
     border-top: none;
     border-bottom: none;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .aButton {
@@ -59,7 +57,7 @@ h1 {
 
 .mainbox {
     height: 100%;
-    width: 100% 
+    width: 100%;
 }
 
 .image1 {
@@ -75,6 +73,7 @@ h1 {
     margin: 50px;
     width: 35%;
     height: 70%;
+    background-color: #6666ff;
 }
 
 .timeleft {
@@ -85,4 +84,36 @@ h3 {
     font-size: 40px;
     display: block;
     margin: 0 auto;
+}
+
+.question {
+    font-size: 35px;
+    display: block;
+    margin: 0 auto;
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+#trivaTitle {
+    width: 600px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+h1 {
+    margin: 0 auto;
+    width: 100%
+}
+
+#onepunch {
+    display: block;
+    margin: 0 auto;
+    height: 50%;
 }
